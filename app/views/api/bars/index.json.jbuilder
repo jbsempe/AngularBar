@@ -1,0 +1,14 @@
+a = json.bars @bars do |bar|
+  json.id bar.id
+  json.name bar.name
+  json.created_at bar.created_at
+  json.updated_at bar.updated_at
+
+  json.beers bar.beers do |beer|
+    json.id beer.id
+    json.name beer.name
+    json.created_at beer.created_at
+    json.updated_at beer.updated_at
+  end
+end
+return a.to_json

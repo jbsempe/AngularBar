@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Liste des bières</h1>
+  </div>
+  <div ng-controller="BeersCtrl">
+    <div class="row">
+      <div class="col-md-4">
+        <input ng-change="filterBeers()" type="text" id="search" class="form-control" ng-model="search" placeholder="Type search phrase here..." />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col-md-6">Bieres</th>
+              <th class="col-md-6">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="beer in beers" ng-include="toggleForm(beer)"></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <form class="form-inline" ng-submit="addBeer()">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Name" ng-model="beer.name" />
+          </div>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/ng-template" id="form">
+      <td>
+        <input ng-model="editing.name" type="text" class="form-control" name="name" />
+      </td>
+      <td>
+        <button ng-click="hideForm()" class="btn btn-default btn-xs">Cancel</button>
+        <button ng-click="updateBeer($index)" class="btn btn-success btn-xs">Save</button>
+      </td>
+    </script>
+    <script type="text/ng-template" id="row">
+      <td>
+        <span>{{beer.name}}</span>
+      </td>
+      <td>
+        <button ng-click="editBeer(beer)" class="btn btn-primary btn-xs">Edit</button>
+        <button ng-click="destroyBeer(beer, $index)" class="btn btn-danger btn-xs">Destroy</button>
+      </td>
+    </script>
+  </div>
+</div>
