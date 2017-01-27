@@ -5,7 +5,8 @@
   <div ng-controller="BeersCtrl">
     <div class="row">
       <div class="col-md-4">
-        <input ng-change="filterBeers()" type="text" id="search" class="form-control" ng-model="search" placeholder="Type search phrase here..." />
+        <input ng-change="filterBeers()" type="text" id="search" class="form-control" ng-model="search" placeholder="Tapez un nom de bière ici..." />
+        <%= link_to 'Retour aux bars', root_path, class: "btn btn-primary" %>
       </div>
     </div>
     <div class="row">
@@ -29,7 +30,7 @@
           <div class="form-group">
             <input type="text" class="form-control" name="name" placeholder="Name" ng-model="beer.name" />
           </div>
-          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="submit" class="btn btn-primary">Ajouter</button>
         </form>
       </div>
     </div>
@@ -39,8 +40,8 @@
         <input ng-model="editing.name" type="text" class="form-control" name="name" />
       </td>
       <td>
-        <button ng-click="hideForm()" class="btn btn-default btn-xs">Cancel</button>
-        <button ng-click="updateBeer($index)" class="btn btn-success btn-xs">Save</button>
+        <button ng-click="hideForm()" class="btn btn-default btn-xs">Annuler</button>
+        <button ng-click="updateBeer($index)" class="btn btn-success btn-xs">Enregistrer</button>
       </td>
     </script>
     <script type="text/ng-template" id="row">
@@ -48,8 +49,8 @@
         <span>{{beer.name}}</span>
       </td>
       <td>
-        <button ng-click="editBeer(beer)" class="btn btn-primary btn-xs">Edit</button>
-        <button ng-click="destroyBeer(beer, $index)" class="btn btn-danger btn-xs">Destroy</button>
+        <button ng-click="editBeer(beer)" class="btn btn-primary btn-xs">Modifier</button>
+        <button ng-click="destroyBeer(beer, $index)" class="btn btn-danger btn-xs">Supprimer</button>
       </td>
     </script>
   </div>
