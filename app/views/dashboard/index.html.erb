@@ -5,8 +5,19 @@
   </div>
   <div ng-controller="BarsCtrl">
     <div class="row">
+      <div class="col-md-8">
+        <form class="form-inline" ng-submit="addBar()">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="ajouter un bar" ng-model="bar.name" />
+          </div>
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+      </div>
       <div class="col-md-4">
-        <input ng-change="filterBars()" type="text" id="search" class="form-control" ng-model="search" placeholder="Rechercher un bar" />
+        <div class="form-group has-feedback">
+          <input ng-change="filterBars()" type="text" id="search" class="form-control" ng-model="search" placeholder="Rechercher un bar" />
+          <i class="glyphicon glyphicon-search form-control-feedback"></i>
+          </div>
       </div>
     </div>
     <div class="row">
@@ -23,16 +34,6 @@
             <tr ng-repeat="bar in bars" ng-include="toggleForm(bar)"></tr>
           </tbody>
         </table>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-        <form class="form-inline" ng-submit="addBar()">
-          <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Name" ng-model="bar.name" />
-          </div>
-          <button type="submit" class="btn btn-primary">Ajouter</button>
-        </form>
       </div>
     </div>
 
