@@ -51,7 +51,9 @@
         <span>{{bar.name}}</span>
       </td>
       <td>
-        <span ng-repeat="beer in bar.beers">{{beer.name}}</span>
+        <div ng-repeat="beer in bar.beers">
+          <span> {{beer.name}}</span>
+        </div>
       </td>
       <td>
         <button ng-click="editBar(bar)" class="btn btn-primary btn-xs">Modifier</button>
